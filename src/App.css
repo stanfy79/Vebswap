@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+.button:hover {
+  animation: spring 1.5s;
+  animation-timing-function: ease;
+  animation-play-state: running;
+}
+
+@keyframes spring {
+  0% { transform: scale(1) translateY(0); }
+  10% { transform: scale(1.2, 0.6); }
+  30% { transform: scale(0.8, 1.1) translateY(-20px); }
+  50% { transform: scale(1) translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+.animate-slide {
+  animation: slideOut 5s ease-in-out alternate infinite;
+}
+.animate-slide2 {
+  animation: slideOut 5s 3s ease-in-out forwards;
+}
+
+/* @keyframes slideOut {
+  0% {
+    transform: rotateZ(0deg);
+    right: 0;
+    top: 0;
+  }
+  50% {
+    transform: rotateZ(35deg);
+    right: -100%;
+    top: 20%;
+  }
+  80% {
+    transform: rotateZ(35deg);
+    right: -100%;
+    top: 10%;
+  }
+  100% {
+    transform: rotateZ(0deg);
+    right: 0%;
+    top: 10%;
+  }
+} */
+
