@@ -5,7 +5,7 @@ import "../App.css";
 export default function Header() {
 
     return (
-            <div className="w-[100%] max-w-80 flex flex-row gap-6 bg-black/90 px-3 py-2 rounded-lg text-white text-5 font-medium fixed flex justify-between items-center top-5">
+            <div className="w-[100%] max-w-80 flex flex-row gap-6 bg-black/90 px-3 py-2 rounded-lg text-white text-5 font-medium fixed flex justify-between items-center top-5 z-20">
                 <div className="gap-6 flex flex-row">
                     <span className="">Swap</span>
                     <span className="">Earn</span>

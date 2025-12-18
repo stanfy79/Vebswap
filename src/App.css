@@ -1,4 +1,10 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+
+@theme {
+  --font-mono: "Sixtyfour", sans-serif;
+  --font-doto: "Doto", sans-serif;
+}
 
 * {
   box-sizing: border-box;
@@ -25,26 +31,62 @@
   animation: slideOut 5s 3s ease-in-out forwards;
 }
 
-/* @keyframes slideOut {
+.ball {
+  filter: blur(10px);
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+.scroll-con::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes float {
   0% {
-    transform: rotateZ(0deg);
-    right: 0;
-    top: 0;
-  }
-  50% {
-    transform: rotateZ(35deg);
-    right: -100%;
-    top: 20%;
-  }
-  80% {
-    transform: rotateZ(35deg);
-    right: -100%;
-    top: 10%;
+    transform: translateY(0px) translateX(0px) scale(1);
   }
   100% {
-    transform: rotateZ(0deg);
-    right: 0%;
-    top: 10%;
+    transform: translateY(-0px) translateX(-90px) scale(1.1);
   }
-} */
+}
+@keyframes textAnimate {
+  0% {
+      background-position: -500%;
+  }
+  100% {
+      background-position: 500%;
+  }
+}
 
+.text-animate {
+    overflow: hidden;
+    background: linear-gradient(90deg, #00000021, #fff, #792de336);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: textAnimate 2s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #e7d5fc7b;
+}
+
+.perspective-container { perspective: 1200px; }
+.page {
+  transform-origin: right center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, box-shadow;
+}
+.page img {
+  backface-visibility: hidden;
+}
+.page.animate {
+  animation: pageFlip 8s ease-out infinite;
+}
+.page.animate.delay {
+  animation-delay: 1.5s;
+}
+@keyframes pageFlip {
+  0%   { transform: rotateY(0deg) translateX(0); }
+  25%  { transform: rotateY(-80deg) translateX(-10%); }
+  50%  { transform: rotateY(-80deg) translateX(-10%); }
+  75%  { transform: rotateY(0deg) translateX(0); }
+  100% { transform: rotateY(0deg) translateX(0); }
+}
