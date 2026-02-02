@@ -16,6 +16,18 @@ import tagImage4 from "./assets/untitled-1.jpg";
 import tagImage5 from "./assets/untitled-2.jpg";
 import tagImage6 from "./assets/untitled-3.jpg";
 
+import { WagmiProvider, createConfig, http } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+// import { SwapCard } from './components/SwapCard';
+
+const config = createConfig({
+  chains: [mainnet],
+  transports: { [mainnet.id]: http() },
+});
+
+const queryClient = new QueryClient();
+
 function App() {
   const elementRef = useRef(null);
   const [rotation, setRotation] = useState(0);
@@ -88,7 +100,6 @@ function App() {
   const spinTop = (-10 + Math.random() * 90).toFixed(2) + "%";
   const spinLeft = (-2 + Math.random() * 90).toFixed(2) + "%";
           
-
   return (
     <>
       <div className="w-full bg-neutral-900">
@@ -118,6 +129,13 @@ function App() {
             </p>
             <LaunchButton />
           </div>
+          <WagmiProvider config={config}>
+          <QueryClientProvider client={queryClient}>
+            <div className="min-h-screen bg-black pt-20">
+              <SwapCard />
+            </div>
+          </QueryClientProvider>
+        </WagmiProvider>
         </div>
 
         <div className="w-full">
