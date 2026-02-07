@@ -1,12 +1,10 @@
-import { createConfig } from 'wagmi';
-import { createPublicClient, http } from 'viem';
-import { mainnet } from 'viem/chains';
+import { createConfig, http } from "wagmi";
+import { mainnet } from "wagmi/chains";
 
 const config = createConfig({
-  publicClient: createPublicClient({
-    chain: mainnet,
-    transport: http()
-  }),
+  chains: [mainnet],
+  transports: {
+    [mainnet.id]: http(),
+  },
 });
-
 export default config;

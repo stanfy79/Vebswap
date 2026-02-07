@@ -1,4 +1,4 @@
-export const TokenModal = ({ isOpen, onSelect }: { isOpen: boolean, onSelect: (t: any) => void }) => {
+const TokenModal = ({ isOpen, onSelect }: { isOpen: boolean, onSelect: (t: any) => void }) => {
   if (!isOpen) return null;
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
@@ -15,3 +15,4 @@ export const TokenModal = ({ isOpen, onSelect }: { isOpen: boolean, onSelect: (t
     </div>
   );
 };
+export default TokenModal;

@@ -16,6 +16,9 @@ export const SwapCard = () => {
       const route = await getRoute(val, address!);
       setQuote(route);
     }
+    else {
+
+    }
   };
 
   const executeSwap = () => {
@@ -44,7 +47,7 @@ export const SwapCard = () => {
       >
         {!isConnected ? 'Connect Wallet' : needsApproval ? 'Approve WETH' : 'Swap'}
       </button>
-      
+      <p className="text-zinc-500 text-xs mt-2">{quote ? `Quote: ${quote.quote.toExact()} USDC` : 'No quote available'}</p>
       {quote && <p className="text-zinc-500 text-xs mt-4 px-2">Best price via V3: {quote.quote.toExact()} USDC</p>}
     </div>
   );

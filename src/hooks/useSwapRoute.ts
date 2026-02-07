@@ -1,4 +1,4 @@
-import { AlphaRouter } from '@uniswap/smart-order-router';
+import { AlphaRouter, SwapType } from '@uniswap/smart-order-router';
 import { CurrencyAmount, TradeType, Percent } from '@uniswap/sdk-core';
 import { ethers } from 'ethers';
 import { WETH, USDC, CHAIN_ID, SWAP_ROUTER_ADDRESS } from '../constants/tokens';
@@ -17,6 +17,7 @@ export const getRoute = async (amountIn: string, address: string) => {
     USDC,
     TradeType.EXACT_INPUT,
     {
+      type: SwapType.SWAP_ROUTER_02,
       recipient: address,
       slippageTolerance: new Percent(50, 10000), // 0.5%
       deadline: Math.floor(Date.now() / 1000 + 1800)
