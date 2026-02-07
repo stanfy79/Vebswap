@@ -11,7 +11,7 @@ import spinAniBG from "./assets/spin-animation-bg.gif";
 import tagImage1 from "./assets/low gas fees.png";
 import tagImage2 from "./assets/Untitled design.png";
 import tagImage3 from "./assets/secure.png";
-import footerBG from "./assets/FooterMin.jpg";
+import footerBG from "./assets/footersec.png";
 import tagImage4 from "./assets/explorers.png";
 import tagImage5 from "./assets/TRADERS.png";
 import tagImage6 from "./assets/Builders.png";
