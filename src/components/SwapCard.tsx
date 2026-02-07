@@ -28,7 +28,7 @@ export const SwapCard = () => {
   };
 
   return (
-    <div className="max-w-[450px] mx-auto p-4 bg-zinc-900 rounded-3xl border border-zinc-800 shadow-2xl">
+    <div className="max-w-112.5 mx-auto p-4 bg-zinc-900 rounded-3xl border border-zinc-800 shadow-2xl">
       <div className="bg-zinc-800 p-4 rounded-2xl mb-2">
         <input 
           type="number" placeholder="0.0" 
