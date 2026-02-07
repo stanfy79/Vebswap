@@ -1,10 +1,13 @@
 import React from 'react';
+import { FaArrowDown } from "react-icons/fa";
+import Token from "./components/Token.jsx"
 
 export default function Swap(){
 
   return(
     <>
     <div className="min-h-screen bg-black flex items-center justify-center">
+      <Token />
       <div className="w-[420px] bg-[#0b0b0b] rounded-2xl p-4 shadow-xl">
 
         <div className="flex gap-4 text-sm mb-4">
@@ -23,18 +26,17 @@ export default function Swap(){
             <input
               type="number"
               placeholder="0"
-              value=""
               className="bg-transparent text-3xl text-white outline-none w-full"
             />
 
-            <button className="flex items-center gap-2 bg-[#1f1f1f] px-3 py-2 rounded-full text-white text-sm">
+            <button className="flex items-center gap-2 w-33 bg-[#1f1f1f] px-3 py-2 rounded-full text-white text-sm">
               <img
                 src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
                 alt="ETH"
                 className="w-5 h-5"
               />
               ETH
-              <span className="text-gray-400">▼</span>
+               <span className="text-gray-400">▼</span>
             </button>
           </div>
 
@@ -42,8 +44,8 @@ export default function Swap(){
         </div>
 
         <div className="flex justify-center -my-2 z-10 relative">
-          <div className="bg-[#1a1a1a] p-2 rounded-full border border-[#2a2a2a]">
-            ⬇️
+          <div className="bg-[#1a1a1a] p-3 rounded-2xl border border-[#2a2a2a]">
+            <FaArrowDown size={20} className="text-blue-500" />
           </div>
         </div>
 
@@ -54,14 +56,14 @@ export default function Swap(){
             <input
               type="number"
               placeholder="0"
-              value=""
               className="bg-transparent text-3xl text-white outline-none w-full"
             />
 
-            <button className="bg-pink-500 px-4 py-2 rounded-full text-white text-sm font-medium">
+            <button className="bg-pink-500 px-4 w-45 flex py-2 rounded-full text-white text-sm font-medium">
               Select token ▼
             </button>
           </div>
+          <p className="text-gray-500 text-sm mt-1">$0</p>
         </div>
 
         <button className="w-full mt-4 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold">
