@@ -1,13 +1,23 @@
-
-
-
+import { useState, useRef, useEffect } from "react";
+import { FaArrowDown } from 'react-icons/fa';
 
 
 export default function Token() {
+  const [hideToken, setHideToken] = useState(false);
 
+  useEffect(() => {
+    const handleHideToken = () => {
+      setHideToken(!hideToken);
+      console.log("Hide token:", hideToken);
+    }
+
+    const hidebtn = document.getElementById("hide-token");
+    hidebtn.addEventListener("click", handleHideToken);
+    // return () => hidebtn.removeEventListener("click", handleHideToken);
+  }, []);
 
 return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+    <div className={`fixed z-20 ${hideToken ? "hidden" : ""}`}>
       <div className="w-[420px] rounded-2xl bg-[#12151c] p-4 text-white shadow-2xl">
 
         <div className="flex items-center justify-between">
@@ -15,6 +25,7 @@ return (
           <button className="text-gray-400 hover:text-white">
             {/* <X size={18} /> */}
           </button>
+          <FaArrowDown id="hide-token" />
         </div>
 
         <div className="relative mt-4">
@@ -48,7 +59,7 @@ return (
         
         <div className="mt-4 flex items-center gap-2 text-xs text-gray-400">
           <span>📈</span>
-          <span>Tokens by 24H volume</span>
+          <span>Tokens by Name</span>
         </div>
 
         <div className="mt-2 max-h-[300px] space-y-1 overflow-y-auto pr-1">

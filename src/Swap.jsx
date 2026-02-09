@@ -1,13 +1,31 @@
-import React from 'react';
+import { useState, useRef, useEffect } from "react";
 import { FaArrowDown } from "react-icons/fa";
-import Token from "./components/Token.jsx"
+import Token from "./components/Token.jsx";
+import { useTokenList } from "./hooks/tokenList.ts";
 
 export default function Swap(){
+  const [showToken, setShowToken] = useState(false);
+  const elementRef = useRef(true);
+
+  const handleShowToken = () => {
+    setShowToken(!showToken);
+  };
+
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     console.log("Clicked outside:", event.target, elementRef.current);
+  //     if (event.target) {
+  //       setShowToken(false);
+  //     }
+  //   };
+  //   document.addEventListener("click", handleClickOutside);
+  //   return () => document.removeEventListener("click", handleClickOutside);
+  // }, []);
 
   return(
     <>
     <div className="min-h-screen bg-black flex items-center justify-center">
-      <Token />
+      {showToken && <Token ref={elementRef} />}
       <div className="w-[420px] bg-[#0b0b0b] rounded-2xl p-4 shadow-xl">
 
         <div className="flex gap-4 text-sm mb-4">
@@ -29,14 +47,16 @@ export default function Swap(){
               className="bg-transparent text-3xl text-white outline-none w-full"
             />
 
-            <button className="flex items-center gap-2 w-33 bg-[#1f1f1f] px-3 py-2 rounded-full text-white text-sm">
+            <button className="flex items-center gap-2 w-33 bg-[#1f1f1f] px-3 py-2 rounded-full text-white text-sm"
+              onClick={() => handleShowToken()}
+            >
               <img
                 src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
                 alt="ETH"
                 className="w-5 h-5"
               />
               ETH
-               <span className="text-gray-400">▼</span>
+              <span className="text-gray-400">▼</span>
             </button>
           </div>
 
